@@ -24,14 +24,14 @@ fadein = function (id) { return function () { id.animate({ opacity: 1 }, 2000) }
 
 fadeout = function (id) { return function () { id.animate({ opacity: 0 }, 2000); } };
 
-randomCloud = function (set, x, y, w, h, t) {
+randomCloud = function (set, x, y, w, h, t, o) {
     return function () {
         set.stop().attr({ opacity: 0 });
 
         for (i = 0; i < set.length; i++) {
             var cx = x + (w * Math.random());
             var cy = y + (h * Math.random());
-            set[i].animate({ "1%": { x: set[i].attr("x"), callback: fade(set[i],.2)}, "90%": { cx: cx, cy: cy }, "91%": { x: set[i].attr("x"), callback: fade(set[i],0)} }, t);
+            set[i].animate({ "1%": { x: set[i].attr("x"), callback: fade(set[i],o)}, "90%": { cx: cx, cy: cy }, "91%": { x: set[i].attr("x"), callback: fade(set[i],0)} }, t);
         }
     };
 };
